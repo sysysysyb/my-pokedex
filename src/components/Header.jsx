@@ -9,7 +9,7 @@ const Header = () => {
           <span className="text-white text-4xl font-bold">Pokédex</span>
         </div>
       </header>
-      <div className="w-full h-25 flex justify-center items-center">
+      <div className="w-full p-5 flex justify-center items-center">
         <input
           type="text"
           placeholder="포켓몬 이름을 입력하세요"
