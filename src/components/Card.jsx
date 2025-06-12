@@ -22,7 +22,10 @@ const Card = () => {
       );
       const data = await response.json();
       console.log("color : ", data.color.name);
-      console.log("name : ", data.names[2].name);
+      console.log(
+        "name : ",
+        data.names.find((el) => el.language.name === "ko").name
+      );
       console.log(
         "desc : ",
         data.flavor_text_entries.find((el) => el.language.name === "ko")
