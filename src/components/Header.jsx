@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Header = () => {
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <header className="w-full h-30">
         <div className="w-full h-15 bg-red-600"></div>
         <div className="w-full h-15 bg-black flex justify-center items-center">
@@ -22,7 +22,7 @@ const Header = () => {
         </button>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 };
 
