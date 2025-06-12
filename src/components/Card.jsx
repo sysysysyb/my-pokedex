@@ -4,7 +4,7 @@ const Card = ({ id, color, name, sprite }) => {
       <img src={sprite} width="150" />
       <div className="w-fit h-fit border border-solid border-gray-300 flex justify-center items-center rounded-xl">
         <span
-          className="px-3 py-0.5 font-semibold rounded-xl"
+          className="px-3 py-0.5 font-semibold rounded-xl border-r border-solid border-gray-300"
           style={{ backgroundColor: `${color}` }}>
           {id}
         </span>
