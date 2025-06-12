@@ -17,7 +17,7 @@ const Header = () => {
         />
         <button
           type="submit"
-          className="px-6 py-4.5 bg-gray-300 rounded-r-lg cursor-pointer">
+          className="px-6 py-4.5 bg-gray-300 font-medium rounded-r-lg cursor-pointer">
           검색
         </button>
       </div>
