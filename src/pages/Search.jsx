@@ -13,7 +13,7 @@ const Search = () => {
   console.log(filteredPokemonData);
 
   return (
-    <section className="px-16 py-8 flex flex-wrap justify-center gap-12 bg-[#747474]">
+    <section className="px-16 py-8 flex flex-wrap justify-center gap-12 grow bg-[#747474]">
       {filteredPokemonData.length > 0 &&
         filteredPokemonData.map((el) => (
           <Card
