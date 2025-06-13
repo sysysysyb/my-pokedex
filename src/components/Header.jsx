@@ -28,7 +28,7 @@ const Header = () => {
       navigate("/");
       return;
     }
-  }, [inputValue, location.pathname, navigate]);
+  }, [inputValue]);
 
   return (
     <div className="h-screen flex flex-col">
