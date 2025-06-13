@@ -43,11 +43,9 @@ const Header = () => {
         </div>
       </header>
       <div className="w-full py-5 flex justify-center items-center gap-50">
-        <button
-          type="button"
-          className="px-6 py-4.5 bg-pink-300 rounded-lg cursor-pointer">
+        <Link to="/favorites" className="px-6 py-4.5 bg-pink-300 rounded-lg">
           Favorites
-        </button>
+        </Link>
         <div>
           <input
             type="text"
