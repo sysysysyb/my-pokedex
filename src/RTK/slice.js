@@ -22,3 +22,20 @@ export const pokemonSlice = createSlice({
       });
   },
 });
+
+export const favoritesSlice = createSlice({
+  name: "favorites",
+  initialState: {
+    list: JSON.parse(localStorage.getItem("favorites")) || [],
+  },
+  reducers: {
+    add(state, action) {
+      state.list.push(action.payload);
+    },
+    remove(state, action) {
+      state.list = state.list.filter((id) => id !== action.payload);
+    },
+  },
+});
+
+export const { add, remove } = favoritesSlice.actions;
