@@ -3,9 +3,8 @@ import { Outlet } from "react-router-dom";
 const Header = () => {
   return (
     <div className="h-screen flex flex-col">
-      <header className="w-full h-30">
-        <div className="w-full h-15 bg-red-600"></div>
-        <div className="w-full h-15 bg-black flex justify-center items-center">
+      <header className="w-full">
+        <div className="w-full py-4 bg-black border-t-65 border-solid border-red-600 flex justify-center items-center">
           <span className="text-white text-4xl font-bold">Pokédex</span>
         </div>
       </header>
