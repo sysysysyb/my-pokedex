@@ -14,7 +14,7 @@ const Header = () => {
     console.log(navigate);
     if (inputValue) {
       const debounceSearch = setTimeout(() => {
-        navigate(`/search?query=${inputValue}`);
+        navigate(`/search?pokemon=${inputValue}`);
       }, 1000);
 
       return () => clearTimeout(debounceSearch);
