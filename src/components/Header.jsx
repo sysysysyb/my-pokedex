@@ -1,26 +1,30 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleInput = (event) => {
     setInputValue(event.target.value);
   };
 
   useEffect(() => {
-    if (!inputValue) {
+    console.log(navigate);
+    if (inputValue) {
+      const debounceSearch = setTimeout(() => {
+        navigate(`/search?query=${inputValue}`);
+      }, 1000);
+
+      return () => clearTimeout(debounceSearch);
+    }
+
+    if (!inputValue && location.pathname.startsWith("/search")) {
       navigate("/");
       return;
     }
-
-    const debounceSearch = setTimeout(() => {
-      navigate(`/search?query=${inputValue}`);
-    }, 1000);
-
-    return () => clearTimeout(debounceSearch);
-  }, [inputValue, navigate]);
+  }, [inputValue, location.pathname, navigate]);
 
   return (
     <div className="h-screen flex flex-col">
