@@ -44,6 +44,4 @@ const Card = ({ id, color, name, sprite }) => {
   );
 };
 
-// filter: invert(94%) sepia(7%) saturate(202%) hue-rotate(179deg) brightness(94%) contrast(85%);
-// filter: invert(24%) sepia(48%) saturate(5223%) hue-rotate(333deg) brightness(102%) contrast(101%);
 export default Card;
