@@ -42,20 +42,28 @@ const Header = () => {
           </Link>
         </div>
       </header>
-      <div className="w-full p-5 flex justify-center items-center">
-        <input
-          type="text"
-          placeholder="포켓몬 이름을 입력하세요"
-          className="w-100 px-6 py-4 border-2 border-solid border-gray-300 rounded-l-lg outline-none"
-          value={inputValue}
-          onChange={handleInput}
-        />
+      <div className="w-full py-5 flex justify-center items-center gap-50">
         <button
-          type="submit"
-          className="px-6 py-4.5 bg-gray-300 font-medium rounded-r-lg cursor-pointer">
-          검색
+          type="button"
+          className="px-6 py-4.5 bg-pink-300 rounded-lg cursor-pointer">
+          Favorites
         </button>
+        <div>
+          <input
+            type="text"
+            placeholder="포켓몬 이름을 입력하세요"
+            className="w-100 px-6 py-4 border-2 border-solid border-gray-300 rounded-l-lg outline-none"
+            value={inputValue}
+            onChange={handleInput}
+          />
+          <button
+            type="submit"
+            className="px-6 py-4.5 bg-gray-300 font-medium rounded-r-lg cursor-pointer">
+            검색
+          </button>
+        </div>
       </div>
+
       <Outlet />
     </div>
   );
