@@ -3,8 +3,9 @@ import HeartIcon from "../images/heart.svg?react";
 import HeartFillIcon from "../images/heart_fill.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../RTK/slice";
+import { memo } from "react";
 
-const Card = ({ id, color, name, sprite }) => {
+const Card = memo(({ id, color, name, sprite }) => {
   const favoritesList = useSelector((state) => state.favorites.list);
   const dispatch = useDispatch();
 
@@ -52,6 +53,6 @@ const Card = ({ id, color, name, sprite }) => {
       </div>
     </Link>
   );
-};
+});
 
 export default Card;
