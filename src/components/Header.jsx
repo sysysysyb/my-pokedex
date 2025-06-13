@@ -28,6 +28,7 @@ const Header = () => {
       navigate("/");
       return;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   return (
