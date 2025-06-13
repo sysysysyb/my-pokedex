@@ -10,6 +10,10 @@ const Header = () => {
     setInputValue(event.target.value);
   };
 
+  const resetInput = () => {
+    setInputValue("");
+  };
+
   useEffect(() => {
     console.log(navigate);
     if (inputValue) {
@@ -30,7 +34,10 @@ const Header = () => {
     <div className="h-screen flex flex-col">
       <header className="w-full">
         <div className="w-full py-4 bg-black border-t-65 border-solid border-red-600 flex justify-center items-center">
-          <Link to="/" className="text-white text-4xl font-bold">
+          <Link
+            to="/"
+            className="text-white text-4xl font-bold"
+            onClick={resetInput}>
             Pokédex
           </Link>
         </div>
