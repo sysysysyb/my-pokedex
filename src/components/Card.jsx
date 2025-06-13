@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import HeartIcon from "../images/heart.svg?react";
 import HeartFillIcon from "../images/heart_fill.svg?react";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { add, remove } from "../RTK/slice";
 
 const Card = ({ id, color, name, sprite }) => {
-  const [isFavorite, setFavorite] = useState(false);
+  const favoritesList = useSelector((state) => state.favorites.list);
+  const dispatch = useDispatch();
 
-  const handleFavorite = (event) => {
+  const handleFavorite = (event, id) => {
     event.preventDefault();
-    setFavorite((prev) => !prev);
+    if (favoritesList.includes(id)) {
+      dispatch(remove(id));
+    } else {
+      dispatch(add(id));
+    }
   };
 
   return (
@@ -27,8 +33,8 @@ const Card = ({ id, color, name, sprite }) => {
       <button
         type="button"
         className="w-fit h-fit p-2 absolute top-1 right-1 cursor-pointer"
-        onClick={handleFavorite}>
-        {isFavorite ? (
+        onClick={(e) => handleFavorite(e, id)}>
+        {favoritesList.includes(id) ? (
           <HeartFillIcon fill="#fff" className="w-8 h-8 fill-rose-500" />
         ) : (
           <HeartIcon className="w-8 h-8 fill-gray-300" />
