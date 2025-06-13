@@ -1,19 +1,43 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { selectPokemonById } from "../RTK/selector";
+import HeartIcon from "../images/heart.svg?react";
+import HeartFillIcon from "../images/heart_fill.svg?react";
+import { add, remove } from "../RTK/slice";
 
 const Detail = () => {
   const { id } = useParams();
-  const pokemonData = useSelector((state) =>
-    state.pokemon.data.find((p) => p.id === Number(id))
-  );
+  const pokemonData = useSelector(selectPokemonById(Number(id)));
   console.log(pokemonData);
+
+  const favoritesList = useSelector((state) => state.favorites.list);
+  const dispatch = useDispatch();
+
+  const handleFavorite = (event, id) => {
+    event.preventDefault();
+    if (favoritesList.includes(id)) {
+      dispatch(remove(id));
+    } else {
+      dispatch(add(id));
+    }
+  };
 
   return (
     <div className="w-full flex justify-center items-center grow bg-[#747474]">
       <div className="px-4 py-12 flex flex-col gap-6 items-center bg-white rounded-xl shadow-[2px_2px_0_2px_#000000]">
-        <div className="font-bold text-3xl flex gap-2">
+        <div className="font-bold text-3xl flex items-center gap-3">
           <span>#{id}</span>
           <span>{pokemonData.name}</span>
+          <button
+            type="button"
+            className="w-fit h-fit p-1 cursor-pointer"
+            onClick={(e) => handleFavorite(e, id)}>
+            {favoritesList.includes(id) ? (
+              <HeartFillIcon fill="#fff" className="w-10 h-10 fill-rose-500" />
+            ) : (
+              <HeartIcon className="w-10 h-10 fill-gray-300" />
+            )}
+          </button>
         </div>
         <div className="font-semibold text-md text-center whitespace-pre-wrap">
           {pokemonData.desc}

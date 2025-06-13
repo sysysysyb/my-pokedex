@@ -13,7 +13,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className="px-16 py-8 flex flex-wrap justify-center gap-12 bg-[#747474]">
+    <section className="px-16 py-8 flex flex-wrap justify-center gap-12 grow bg-[#747474]">
       {pokemonData.length > 0 &&
         pokemonData.map((el) => (
           <Card
@@ -24,7 +24,7 @@ const Home = () => {
             sprite={el.sprites.front_default}
           />
         ))}
-    </div>
+    </section>
   );
 };
 
