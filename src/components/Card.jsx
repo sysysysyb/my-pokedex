@@ -24,7 +24,17 @@ const Card = ({ id, color, name, sprite }) => {
         <div className="w-fit h-fit border border-solid border-gray-300 flex justify-center items-center rounded-xl">
           <span
             className="px-3 py-0.5 font-semibold rounded-xl border-r border-solid border-gray-300"
-            style={{ backgroundColor: `${color}` }}>
+            style={{
+              backgroundColor: `${color}`,
+              color: `${
+                color === "black" ||
+                color === "blue" ||
+                color === "purple" ||
+                color === "brown"
+                  ? "#D1D5DC"
+                  : "black"
+              }`,
+            }}>
             {id}
           </span>
           <span className="px-3">{name}</span>
