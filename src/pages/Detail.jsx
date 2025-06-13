@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { selectPokemonById } from "../RTK/selector";
 
 const Detail = () => {
   const { id } = useParams();
-  const pokemonData = useSelector((state) =>
-    state.pokemon.data.find((p) => p.id === Number(id))
-  );
+  const pokemonData = useSelector(selectPokemonById(Number(id)));
   console.log(pokemonData);
 
   return (

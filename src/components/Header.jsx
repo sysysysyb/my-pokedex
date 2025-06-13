@@ -1,11 +1,43 @@
-import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleInput = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const resetInput = () => {
+    setInputValue("");
+  };
+
+  useEffect(() => {
+    console.log(navigate);
+    if (inputValue) {
+      const debounceSearch = setTimeout(() => {
+        navigate(`/search?pokemon=${inputValue}`);
+      }, 1000);
+
+      return () => clearTimeout(debounceSearch);
+    }
+
+    if (!inputValue && location.pathname.startsWith("/search")) {
+      navigate("/");
+      return;
+    }
+  }, [inputValue]);
+
   return (
     <div className="h-screen flex flex-col">
       <header className="w-full">
         <div className="w-full py-4 bg-black border-t-65 border-solid border-red-600 flex justify-center items-center">
-          <Link to="/" className="text-white text-4xl font-bold">
+          <Link
+            to="/"
+            className="text-white text-4xl font-bold"
+            onClick={resetInput}>
             Pokédex
           </Link>
         </div>
@@ -15,6 +47,8 @@ const Header = () => {
           type="text"
           placeholder="포켓몬 이름을 입력하세요"
           className="w-100 px-6 py-4 border-2 border-solid border-gray-300 rounded-l-lg outline-none"
+          value={inputValue}
+          onChange={handleInput}
         />
         <button
           type="submit"
