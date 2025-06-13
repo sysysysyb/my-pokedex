@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import SearchIcon from "../images/search.svg?react";
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
@@ -44,10 +45,12 @@ const Header = () => {
         </div>
       </header>
       <div className="w-full py-5 flex justify-center items-center gap-50">
-        <Link to="/favorites" className="px-6 py-4.5 bg-pink-300 rounded-lg">
+        <Link
+          to="/favorites"
+          className="px-6 py-3 border-5 border-solid border-rose-300 text-rose-300 text-xl font-bold rounded-lg">
           Favorites
         </Link>
-        <div>
+        <div className="flex">
           <input
             type="text"
             placeholder="포켓몬 이름을 입력하세요"
@@ -58,7 +61,7 @@ const Header = () => {
           <button
             type="submit"
             className="px-6 py-4.5 bg-gray-300 font-medium rounded-r-lg cursor-pointer">
-            검색
+            <SearchIcon className="w-5 h-5.5" />
           </button>
         </div>
       </div>
