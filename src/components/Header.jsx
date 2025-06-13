@@ -1,11 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="h-screen flex flex-col">
       <header className="w-full">
         <div className="w-full py-4 bg-black border-t-65 border-solid border-red-600 flex justify-center items-center">
-          <span className="text-white text-4xl font-bold">Pokédex</span>
+          <Link to="/" className="text-white text-4xl font-bold">
+            Pokédex
+          </Link>
         </div>
       </header>
       <div className="w-full p-5 flex justify-center items-center">
