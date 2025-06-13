@@ -17,7 +17,7 @@ function App() {
         </div>
       }>
       <BrowserRouter>
-        <div className="animate-fade-in">
+        <div className="animate-fade-in font-galmuri">
           <Routes>
             <Route path="/" element={<Header />}>
               <Route index element={<Home />} />
