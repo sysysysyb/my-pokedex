@@ -1,6 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInput = (event) => setInputValue(event.target.value);
+
   return (
     <div className="h-screen flex flex-col">
       <header className="w-full">
@@ -15,6 +20,8 @@ const Header = () => {
           type="text"
           placeholder="포켓몬 이름을 입력하세요"
           className="w-100 px-6 py-4 border-2 border-solid border-gray-300 rounded-l-lg outline-none"
+          value={inputValue}
+          onChange={handleInput}
         />
         <button
           type="submit"
