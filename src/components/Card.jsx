@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import HeartIcon from "../images/heart.svg?react";
 import HeartFillIcon from "../images/heart_fill.svg?react";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +20,7 @@ const Card = memo(({ id, color, name, sprite }) => {
   return (
     <div
       onClick={() => dispatch(setSelected(Number(id)))}
-      className="relative w-50 py-4 relative bg-white flex flex-col items-center shrink-0 rounded-xl shadow-[2px_2px_0_2px_#000000] cursor-pointer duration-300 ease-out hover:scale-110">
+      className="relative w-50 py-4 relative shadow-[0px_0px_3px_3px_inset_#00000010] bg-white flex flex-col items-center shrink-0 cursor-pointer duration-300 ease-out hover:bg-gray-100">
       <img src={sprite} width="150" />
       <div className="w-fit h-fit border border-solid border-gray-300 flex justify-center items-center rounded-xl">
         <span
@@ -43,7 +42,7 @@ const Card = memo(({ id, color, name, sprite }) => {
       </div>
       <button
         type="button"
-        className="w-fit h-fit p-2 absolute top-1 right-1 cursor-pointer"
+        className="z-99 w-fit h-fit p-2 absolute top-1 right-1 cursor-pointer"
         onClick={(e) => handleFavorite(e, id)}>
         {favoritesList.includes(id) ? (
           <HeartFillIcon fill="#fff" className="w-8 h-8 fill-rose-500" />
