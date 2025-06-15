@@ -53,7 +53,7 @@ const Header = () => {
       </header>
 
       <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
-        <div className="w-full h-full col-span-2 overflow-y-auto">
+        <div className="w-full h-full col-span-2 overflow-y-auto z-9">
           <Outlet />
         </div>
         <div className="w-full h-full col-span-1 relative">
