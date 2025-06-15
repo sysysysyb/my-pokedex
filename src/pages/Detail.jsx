@@ -109,8 +109,12 @@ const Detail = () => {
                 <button
                   type="button"
                   className="w-fit h-fit p-1 cursor-pointer"
-                  onClick={(e) => handleFavorite(e, selectedId)}>
-                  {favoritesList.includes(selectedId) ? (
+                  onClick={(e) =>
+                    handleFavorite(e, String(selectedId).padStart(3, "0"))
+                  }>
+                  {favoritesList.includes(
+                    String(selectedId).padStart(3, "0")
+                  ) ? (
                     <HeartFillIcon
                       fill="#fff"
                       className="w-8 h-8 fill-rose-600"
