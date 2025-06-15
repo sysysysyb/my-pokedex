@@ -35,7 +35,7 @@ const Header = () => {
   }, [inputValue]);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="w-full h-screen flex flex-col">
       <header className="w-full fixed z-99 shadow-xl">
         <div className="w-full relative">
           <div className="w-full h-12 bg-red-600"></div>
@@ -52,9 +52,13 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="pt-30 pb-20 flex">
-        <Outlet />
-        <Detail />
+      <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
+        <div className="w-full h-full col-span-2 overflow-y-auto">
+          <Outlet />
+        </div>
+        <div className="w-full h-full col-span-1 relative">
+          <Detail />
+        </div>
       </div>
 
       <div className="w-full px-30 py-2 fixed z-99 bottom-0 bg-blue-600 flex justify-between items-center">

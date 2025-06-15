@@ -23,7 +23,7 @@ const Detail = () => {
   if (!pokemonData) return <div>Loading...</div>;
 
   return (
-    <div className="flex-1 w-full flex justify-center items-center grow bg-[#747474]">
+    <aside className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center grow bg-white">
       <div className="px-4 py-12 flex flex-col gap-6 items-center bg-white rounded-xl shadow-[2px_2px_0_2px_#000000]">
         <div className="font-bold text-3xl flex items-center gap-3">
           <span>#{selectedId}</span>
@@ -73,7 +73,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
