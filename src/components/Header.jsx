@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import SearchIcon from "../images/search.svg?react";
+
+const Detail = lazy(() => import("../pages/Detail"));
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
@@ -50,8 +52,9 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="pt-30 pb-20">
+      <div className="pt-30 pb-20 flex">
         <Outlet />
+        <Detail />
       </div>
 
       <div className="w-full px-30 py-2 fixed z-99 bottom-0 bg-blue-600 flex justify-between items-center">

@@ -45,6 +45,18 @@ export const pokemonIdSlice = createSlice({
   },
 });
 
+export const selectedSlice = createSlice({
+  name: "selectedPokemon",
+  initialState: { id: null },
+  reducers: {
+    setSelected(state, action) {
+      state.id = action.payload;
+    },
+  },
+});
+
+export const { setSelected } = selectedSlice.actions;
+
 export const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
