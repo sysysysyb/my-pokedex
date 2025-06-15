@@ -20,7 +20,7 @@ const Home = () => {
   }, [dispatch, pokemonIdList]);
 
   return (
-    <section className="px-16 py-8 flex flex-wrap justify-center gap-12 grow bg-[#747474]">
+    <section className="py-5 flex flex-wrap justify-center gap-12 grow bg-[#747474]">
       {pokemonData.length > 0 &&
         pokemonData.map((el) => (
           <Card
