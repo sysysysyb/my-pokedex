@@ -22,7 +22,7 @@ const Header = () => {
     if (inputValue) {
       const debounceSearch = setTimeout(() => {
         navigate(`/search?pokemon=${inputValue}`);
-      }, 1000);
+      }, 300);
 
       return () => clearTimeout(debounceSearch);
     }
