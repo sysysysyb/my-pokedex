@@ -14,3 +14,18 @@
     }
   }
 }
+
+@layer utilities {
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply h-[10%] bg-blue-500 rounded-full;
+  }
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-700 rounded-full;
+  }
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-blue-100;
+  }
+}

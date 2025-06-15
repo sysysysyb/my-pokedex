@@ -53,7 +53,7 @@ const Header = () => {
       </header>
 
       <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
-        <div className="w-full h-full col-span-2 overflow-y-auto z-9">
+        <div className="scrollbar-custom w-full h-full col-span-2 overflow-y-auto z-9">
           <Outlet />
         </div>
         <div className="w-full h-full col-span-1 relative">
@@ -67,14 +67,14 @@ const Header = () => {
           <input
             type="text"
             placeholder="포켓몬 이름을 입력하세요"
-            className="bg-white py-4 w-full px-11 text-2xl border-3 border-solid border-gray-300 rounded-lg outline-none"
+            className="bg-white py-3 w-full px-11 text-2xl border-3 border-solid border-gray-300 rounded-lg outline-none"
             value={inputValue}
             onChange={handleInput}
           />
         </div>
         <Link
           to="/favorites"
-          className="p-4 bg-white border-3 border-solid border-gray-300 text-2xl font-bold rounded-lg">
+          className="p-3 bg-white border-3 border-solid border-gray-300 text-2xl font-bold rounded-lg">
           Favorites
         </Link>
       </div>
