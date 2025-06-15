@@ -1,5 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+export const fetchPokemonId = createAsyncThunk(
+  "pokemonId/fetchPokemonId",
+  async () => {
+    const response = await fetch(
+      "https://pokeapi.co/api/v2/pokedex/updated-johto/"
+    );
+    const { pokemon_entries } = await response.json();
+
+    const pokemonId = pokemon_entries.map((el) => {
+      const splits = el.pokemon_species.url.split("/").filter(Boolean);
+      return splits.pop(); // 마지막 요소 반환을 위해 pop 사용
+    });
+
+    return pokemonId;
+  }
+);
+
 export const fetchMultiplePokemonById = createAsyncThunk(
   "pokemon/fetchMultiplePokemonById",
   async (maxPokemonId) => {
@@ -8,7 +25,7 @@ export const fetchMultiplePokemonById = createAsyncThunk(
       (_, idx) => idx + 1
     );
 
-    const fetchAPI = async (pokemonId) => {
+    const getPokemonData = async (pokemonId) => {
       // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
       const response = await fetch(
         `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`
@@ -33,6 +50,6 @@ export const fetchMultiplePokemonById = createAsyncThunk(
       return pokemonData;
     };
 
-    return await Promise.all(numberArray.map((el) => fetchAPI(el)));
+    return await Promise.all(numberArray.map((el) => getPokemonData(el)));
   }
 );

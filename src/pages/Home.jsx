@@ -1,15 +1,17 @@
 import Card from "../components/Card";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMultiplePokemonById } from "../RTK/thunk";
+import { fetchMultiplePokemonById, fetchPokemonId } from "../RTK/thunk";
 
 const Home = () => {
   const dispatch = useDispatch();
   const pokemonData = useSelector((state) => state.pokemon.data);
-  console.log(pokemonData);
+  const pokemonIdList = useSelector((state) => state.pokemonId.data);
+  console.log("pokemonIdList : ", pokemonIdList);
 
   useEffect(() => {
     dispatch(fetchMultiplePokemonById(151));
+    dispatch(fetchPokemonId());
   }, [dispatch]);
 
   return (
