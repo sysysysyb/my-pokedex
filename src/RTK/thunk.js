@@ -20,7 +20,7 @@ export const fetchPokemonId = createAsyncThunk(
 export const fetchMultiplePokemonById = createAsyncThunk(
   "pokemon/fetchMultiplePokemonById",
   async (pokemonIdList) => {
-    const getPokemonData = async (pokemonId) => {
+    const getPokemonData = async (pokemonId, count) => {
       const [responseP, responsePS] = await Promise.all([
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`),
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`),
@@ -32,7 +32,7 @@ export const fetchMultiplePokemonById = createAsyncThunk(
       ]);
 
       const pokemonData = {
-        id: pokemonId,
+        id: count,
         color: dataPS.color.name,
         desc: dataPS.flavor_text_entries.find((el) => el.language.name === "ko")
           .flavor_text,
@@ -52,6 +52,8 @@ export const fetchMultiplePokemonById = createAsyncThunk(
       return pokemonData;
     };
 
-    return await Promise.all(pokemonIdList.map((el) => getPokemonData(el)));
+    return await Promise.all(
+      pokemonIdList.map((el, idx) => getPokemonData(el, idx + 1))
+    );
   }
 );
