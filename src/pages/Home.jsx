@@ -7,12 +7,17 @@ const Home = () => {
   const dispatch = useDispatch();
   const pokemonData = useSelector((state) => state.pokemon.data);
   const pokemonIdList = useSelector((state) => state.pokemonId.data);
-  console.log("pokemonIdList : ", pokemonIdList);
+  console.log("pokemonData : ", pokemonData);
 
   useEffect(() => {
-    dispatch(fetchMultiplePokemonById(151));
     dispatch(fetchPokemonId());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (pokemonIdList.length > 0) {
+      dispatch(fetchMultiplePokemonById(pokemonIdList));
+    }
+  }, [dispatch, pokemonIdList]);
 
   return (
     <section className="px-16 py-8 flex flex-wrap justify-center gap-12 grow bg-[#747474]">
