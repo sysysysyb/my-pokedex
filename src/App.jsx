@@ -4,7 +4,6 @@ import { lazy, Suspense } from "react";
 import RotateGif from "./images/rotate.gif";
 
 const Home = lazy(() => import("./pages/Home"));
-const Detail = lazy(() => import("./pages/Detail"));
 const Search = lazy(() => import("./pages/Search"));
 const Favorites = lazy(() => import("./pages/Favorites"));
 
@@ -21,7 +20,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Header />}>
               <Route index element={<Home />} />
-              <Route path="/detail/:id" element={<Detail />} />
               <Route path="/search" element={<Search />} />
               <Route path="/favorites" element={<Favorites />} />
             </Route>

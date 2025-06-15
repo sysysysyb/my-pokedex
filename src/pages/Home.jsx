@@ -2,6 +2,7 @@ import Card from "../components/Card";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMultiplePokemonById, fetchPokemonId } from "../RTK/thunk";
+import { setSelected } from "../RTK/slice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,21 +17,24 @@ const Home = () => {
   useEffect(() => {
     if (pokemonIdList.length > 0) {
       dispatch(fetchMultiplePokemonById(pokemonIdList));
+      dispatch(setSelected(1));
     }
   }, [dispatch, pokemonIdList]);
 
   return (
-    <section className="px-16 py-8 flex flex-wrap justify-center gap-12 grow bg-[#747474]">
-      {pokemonData.length > 0 &&
-        pokemonData.map((el) => (
-          <Card
-            key={el.id}
-            id={`${el.id}`.padStart(3, "0")}
-            color={el.color}
-            name={el.name}
-            sprite={el.sprites.front_default}
-          />
-        ))}
+    <section className="py-5 bg-white">
+      <div className="flex flex-wrap justify-center">
+        {pokemonData.length > 0 &&
+          pokemonData.map((el) => (
+            <Card
+              key={el.id}
+              id={`${el.id}`.padStart(3, "0")}
+              color={el.color}
+              name={el.name}
+              sprite={el.sprites.front_default}
+            />
+          ))}
+      </div>
     </section>
   );
 };
