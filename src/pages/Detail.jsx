@@ -51,11 +51,11 @@ const Detail = () => {
   if (!pokemonData) return <div>Loading...</div>;
 
   return (
-    <aside className="w-full absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white">
-      <div className="w-full pl-4 py-2 mb-4 bg-red-500 text-white border-b-3 border-solid border-black shadow-[0px_5px_5px_1px_#00000015]">
+    <aside className="pb-20 h-full w-full absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white">
+      <div className="w-full pl-4 py-2 mb-4 bg-red-500 text-xl text-white border-b-3 border-solid border-black shadow-[0px_5px_5px_1px_#00000015]">
         설명
       </div>
-      <div className="flex px-5">
+      <div className="h-full flex items-center px-5">
         <div className="flex-2">
           <div
             style={{ display: showShiny ? "none" : "inline-grid" }}
@@ -102,7 +102,7 @@ const Detail = () => {
             </button>
           </div>
         </div>
-        <div className="flex-3 flex flex-col justify-between">
+        <div className="flex-3 flex flex-col gap-10">
           <div className="shadow-[5px_5px_5px_1px_#00000015] w-full border border-solid border-gray-300 rounded-lg">
             <div className="w-full pl-5 bg-red-400 flex items-center gap-3 text-white text-lg rounded-t-lg">
               <div className="flex items-center gap-1">
