@@ -63,7 +63,7 @@ const Header = () => {
 
       <div className="w-full px-30 py-2 fixed z-99 bottom-0 bg-blue-600 flex justify-between items-center">
         <div className="relative w-3/5">
-          <SearchIcon className="absolute top-1/2 left-4 transform -translate-y-1/2 w-5 h-5.5" />
+          <SearchIcon className="absolute top-1/2 left-4 transform -translate-y-1/2 w-5 h-5.5 fill-gray-400" />
           <input
             type="text"
             placeholder="포켓몬 이름을 입력하세요"

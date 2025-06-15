@@ -113,7 +113,7 @@ const Detail = () => {
                   {favoritesList.includes(selectedId) ? (
                     <HeartFillIcon
                       fill="#fff"
-                      className="w-8 h-8 fill-rose-500"
+                      className="w-8 h-8 fill-rose-600"
                     />
                   ) : (
                     <HeartIcon className="w-8 h-8 fill-white" />
