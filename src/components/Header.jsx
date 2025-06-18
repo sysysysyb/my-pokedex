@@ -2,7 +2,7 @@ import { lazy, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import SearchIcon from "../images/search.svg?react";
 
-const Detail = lazy(() => import("../pages/Detail"));
+const Detail = lazy(() => import("./Detail"));
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
