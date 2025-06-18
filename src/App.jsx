@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
 import { lazy, Suspense } from "react";
 import RotateGif from "./images/rotate.gif";
+import Layout from "./layout/Layout";
 
 const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <div className="animate-fade-in font-galmuri">
           <Routes>
-            <Route path="/" element={<Header />}>
+            <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="/search" element={<Search />} />
               <Route path="/favorites" element={<Favorites />} />
