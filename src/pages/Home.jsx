@@ -8,7 +8,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const pokemonData = useSelector((state) => state.pokemon.data);
   const pokemonIdList = useSelector((state) => state.pokemonId.data);
-  console.log("pokemonData : ", pokemonData);
 
   useEffect(() => {
     dispatch(fetchPokemonId());

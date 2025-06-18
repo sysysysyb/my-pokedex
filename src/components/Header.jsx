@@ -18,7 +18,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log(navigate);
     if (inputValue) {
       const debounceSearch = setTimeout(() => {
         navigate(`/search?pokemon=${inputValue}`);
