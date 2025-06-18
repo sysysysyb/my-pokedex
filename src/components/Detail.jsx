@@ -93,12 +93,12 @@ const Detail = () => {
           </div>
           <div className="flex justify-center gap-2">
             <button
-              onClick={() => setShowShiny((prev) => !prev)}
+              onClick={() => setShowShiny(false)}
               className="px-2 py-1 text-gray-500 border-3 border-solid border-gray-300 rounded-lg cursor-pointer hover:bg-gray-300 hover:text-white">
               default
             </button>
             <button
-              onClick={() => setShowShiny((prev) => !prev)}
+              onClick={() => setShowShiny(true)}
               className="px-2 py-1 text-gray-500 border-3 border-solid border-gray-300 rounded-lg cursor-pointer hover:bg-gray-300 hover:text-white">
               shiny
             </button>
