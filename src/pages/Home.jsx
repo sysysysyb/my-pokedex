@@ -20,6 +20,11 @@ const Home = () => {
     }
   }, [dispatch, pokemonIdList]);
 
+  if (pokemonData.length === 0)
+    return (
+      <div className="h-full flex justify-center items-center">Loading...</div>
+    );
+
   return (
     <section className="py-5 bg-white">
       <div className="flex flex-wrap justify-center">
