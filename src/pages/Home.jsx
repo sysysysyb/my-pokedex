@@ -8,7 +8,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const pokemonData = useSelector((state) => state.pokemon.data);
   const pokemonIdList = useSelector((state) => state.pokemonId.data);
-  console.log("pokemonData : ", pokemonData);
 
   useEffect(() => {
     dispatch(fetchPokemonId());
@@ -20,6 +19,11 @@ const Home = () => {
       dispatch(setSelected(1));
     }
   }, [dispatch, pokemonIdList]);
+
+  if (pokemonData.length === 0)
+    return (
+      <div className="h-full flex justify-center items-center">Loading...</div>
+    );
 
   return (
     <section className="py-5 bg-white">

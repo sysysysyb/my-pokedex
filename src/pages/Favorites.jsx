@@ -3,10 +3,7 @@ import { useSelector } from "react-redux";
 import Card from "../components/Card";
 
 const Favorites = () => {
-  const favoritesList = useSelector((state) => state.favorites.list);
   const filteredPokemonData = useSelector(selectPokemonByFavorites);
-  console.log(favoritesList);
-  console.log(filteredPokemonData);
 
   return (
     <section className="py-5 bg-white">

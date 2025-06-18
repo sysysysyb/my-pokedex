@@ -10,7 +10,6 @@ const Search = () => {
   const reg = getRegExp(param);
 
   const filteredPokemonData = useSelector(selectPokemonByRegExp(reg));
-  console.log(filteredPokemonData);
 
   return (
     <section className="py-5 bg-white">
