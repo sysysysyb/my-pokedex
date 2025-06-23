@@ -6,6 +6,7 @@ import Layout from "./layout/Layout";
 const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
 const Favorites = lazy(() => import("./pages/Favorites"));
+const Detail = lazy(() => import("./components/Detail"));
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path="/search" element={<Search />} />
               <Route path="/favorites" element={<Favorites />} />
+              <Route path="/detail/:id" element={<Detail />} />
             </Route>
           </Routes>
         </div>

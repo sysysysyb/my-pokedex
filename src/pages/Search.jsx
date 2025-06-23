@@ -6,7 +6,7 @@ import Card from "../components/Card";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
-  const param = searchParams.get("pokemon");
+  const param = searchParams.get("pokemon") ?? "";
   const reg = getRegExp(param);
 
   const filteredPokemonData = useSelector(selectPokemonByRegExp(reg));

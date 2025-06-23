@@ -37,11 +37,11 @@ const Layout = () => {
     <div className="w-full h-screen flex flex-col">
       <Header resetInput={resetInput} />
 
-      <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
-        <div className="scrollbar-custom w-full h-full col-span-2 overflow-y-auto z-9">
+      <div className="pt-30 pb-20 w-full h-full lg:flex 2xl:grid 2xl:grid-cols-3">
+        <div className="scrollbar-custom w-full h-full lg:grow overflow-y-auto z-9 2xl:col-span-2">
           <Outlet />
         </div>
-        <div className="w-full h-full col-span-1 relative">
+        <div className="w-full h-full relative hidden lg:block lg:grow 2xl:col-span-1">
           <Detail />
         </div>
       </div>
