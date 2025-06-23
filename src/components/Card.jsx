@@ -3,10 +3,20 @@ import HeartFillIcon from "../images/heart_fill.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove, setSelected } from "../RTK/slice";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = memo(({ id, color, name, sprite }) => {
   const favoritesList = useSelector((state) => state.favorites.list);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const lg = window.matchMedia("(min-width: 1024px)");
+
+  const handleClick = () => {
+    dispatch(setSelected(Number(id)));
+    if (!lg.matches) {
+      navigate(`/detail/${id}`);
+    }
+  };
 
   const handleFavorite = (event, id) => {
     event.preventDefault();
@@ -19,7 +29,7 @@ const Card = memo(({ id, color, name, sprite }) => {
 
   return (
     <div
-      onClick={() => dispatch(setSelected(Number(id)))}
+      onClick={handleClick}
       className="relative w-50 py-4 relative shadow-[0px_0px_3px_3px_inset_#00000010] bg-white flex flex-col items-center shrink-0 cursor-pointer duration-300 ease-out hover:bg-gray-100">
       <img src={sprite} width="150" />
       <div className="w-fit h-fit border border-solid border-gray-300 flex justify-center items-center rounded-xl">
