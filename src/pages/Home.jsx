@@ -3,11 +3,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMultiplePokemonById, fetchPokemonId } from "../RTK/thunk";
 import { setSelected } from "../RTK/slice";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
   const pokemonData = useSelector((state) => state.pokemon.data);
   const pokemonIdList = useSelector((state) => state.pokemonId.data);
+  const { state } = useLocation();
+  const selectedId = state?.fromDetailId ?? 1;
 
   useEffect(() => {
     dispatch(fetchPokemonId());
@@ -16,9 +19,10 @@ const Home = () => {
   useEffect(() => {
     if (pokemonIdList.length > 0) {
       dispatch(fetchMultiplePokemonById(pokemonIdList));
-      dispatch(setSelected(1));
+      dispatch(setSelected(selectedId));
     }
-  }, [dispatch, pokemonIdList]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemonIdList, selectedId]);
 
   if (pokemonData.length === 0)
     return (

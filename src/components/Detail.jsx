@@ -5,14 +5,19 @@ import HeartFillIcon from "../images/heart_fill.svg?react";
 import { add, remove } from "../RTK/slice";
 import { useEffect, useState } from "react";
 import typeColorList from "../constants/typeColorList";
+import { useMediaQuery } from "react-responsive";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Detail = () => {
+  const [showShiny, setShowShiny] = useState(false);
   const selectedId = useSelector((state) => state.selectedPokemon?.id);
   const pokemonData = useSelector(selectPokemonById(selectedId));
   const favoritesList = useSelector((state) => state.favorites.list);
   const dispatch = useDispatch();
-
-  const [showShiny, setShowShiny] = useState(false);
+  const navigate = useNavigate();
+  const { pathname, state } = useLocation();
+  const returnPath = state?.from || "/";
+  const isLgScreen = useMediaQuery({ query: "(max-width: 1023px)" });
 
   const handleFavorite = (event, id) => {
     event.preventDefault();
@@ -26,6 +31,18 @@ const Detail = () => {
   useEffect(() => {
     setShowShiny(false);
   }, [pokemonData]);
+
+  useEffect(() => {
+    if (!pathname.startsWith("/detail")) return;
+
+    if (!isLgScreen) {
+      console.log(returnPath);
+      returnPath === "/"
+        ? navigate(returnPath, { state: { fromDetailId: selectedId } })
+        : navigate(returnPath);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLgScreen, returnPath]);
 
   if (!pokemonData)
     return (
