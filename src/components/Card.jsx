@@ -3,23 +3,27 @@ import HeartFillIcon from "../images/heart_fill.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove, setSelected } from "../RTK/slice";
 import { memo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const Card = memo(({ id, color, name, sprite }) => {
   const favoritesList = useSelector((state) => state.favorites.list);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const lg = window.matchMedia("(min-width: 1024px)");
+  const location = useLocation();
+  const isLgScreen = useMediaQuery({ query: "(max-width: 1023px)" });
 
   const handleClick = () => {
     dispatch(setSelected(Number(id)));
-    if (!lg.matches) {
-      navigate(`/detail/${id}`);
+    if (isLgScreen) {
+      navigate(`/detail/${id}`, {
+        state: { from: location.pathname + location.search },
+      });
     }
   };
 
   const handleFavorite = (event, id) => {
-    event.preventDefault();
+    event.stopPropagation();
     if (favoritesList.includes(id)) {
       dispatch(remove(id));
     } else {
