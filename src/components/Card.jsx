@@ -34,11 +34,11 @@ const Card = memo(({ id, color, name, sprite }) => {
   return (
     <div
       onClick={handleClick}
-      className="relative w-50 py-4 relative shadow-[0px_0px_3px_3px_inset_#00000010] bg-white flex flex-col items-center shrink-0 cursor-pointer duration-300 ease-out hover:bg-gray-100">
+      className="relative w-40 sm:w-50 py-4 relative shadow-[0px_0px_3px_3px_inset_#00000010] bg-white flex flex-col items-center shrink-0 cursor-pointer duration-300 ease-out hover:bg-gray-100">
       <img src={sprite} width="150" />
       <div className="w-fit h-fit border border-solid border-gray-300 flex justify-center items-center rounded-xl">
         <span
-          className="px-3 py-0.5 font-semibold rounded-xl border-r border-solid border-gray-300"
+          className="px-2 sm:px-3 py-0.5 font-semibold rounded-xl border-r border-solid border-gray-300"
           style={{
             backgroundColor: `${color}`,
             color: `${
