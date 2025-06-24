@@ -23,6 +23,28 @@ export const pokemonSlice = createSlice({
   },
 });
 
+export const pokemonHomeSlice = createSlice({
+  name: "pokemonHome",
+  initialState: {
+    data: [],
+    loading: true,
+  },
+  reducers: {}, // 동기적 상태 변경
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchMultiplePokemonById.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchMultiplePokemonById.rejected, (state) => {
+        state.loading = false;
+      })
+      .addCase(fetchMultiplePokemonById.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.data.push(...payload);
+      });
+  },
+});
+
 export const pokemonIdSlice = createSlice({
   name: "pokemonId",
   initialState: {
@@ -47,10 +69,10 @@ export const pokemonIdSlice = createSlice({
 
 export const selectedSlice = createSlice({
   name: "selectedPokemon",
-  initialState: { id: null },
+  initialState: { count: null },
   reducers: {
     setSelected(state, action) {
-      state.id = action.payload;
+      state.count = action.payload;
     },
   },
 });

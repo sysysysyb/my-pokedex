@@ -3,12 +3,14 @@ import {
   favoritesSlice,
   pokemonIdSlice,
   pokemonSlice,
+  pokemonHomeSlice,
   selectedSlice,
 } from "./slice";
 
 export const store = configureStore({
   reducer: {
     pokemon: pokemonSlice.reducer,
+    pokemonHome: pokemonHomeSlice.reducer,
     pokemonId: pokemonIdSlice.reducer,
     selectedPokemon: selectedSlice.reducer,
     favorites: favoritesSlice.reducer,
