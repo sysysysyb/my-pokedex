@@ -32,7 +32,8 @@ export const fetchMultiplePokemonById = createAsyncThunk(
       ]);
 
       const pokemonData = {
-        id: count,
+        id: pokemonId,
+        count: count,
         color: dataPS.color.name,
         desc: dataPS.flavor_text_entries.find((el) => el.language.name === "ko")
           .flavor_text,
