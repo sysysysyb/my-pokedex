@@ -1,4 +1,4 @@
-const typeColorList = {
+const POKEMON_TYPE_LIST = {
   bug: "#9F9F28",
   dark: "#4F4747",
   dragon: "#576FBC",
@@ -19,4 +19,4 @@ const typeColorList = {
   water: "#3099E1",
 };
 
-export default typeColorList;
+export default POKEMON_TYPE_LIST;
