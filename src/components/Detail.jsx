@@ -74,7 +74,7 @@ const Detail = () => {
           </div>
           <div
             style={{ display: showShiny ? "inline-grid" : "none" }}
-            className="perspective-midrange transform-3d rotate-y-0 duration-300 hover:perspective-midrange hover:rotate-y-180">
+            className="p-2 perspective-midrange transform-3d rotate-y-0 duration-300 hover:perspective-midrange hover:rotate-y-180">
             <img
               className="p-2 backface-hidden row-start-1 col-start-1 row-end-1 col-end-1"
               src={pokemonData.sprites.front_shiny}
